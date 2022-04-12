@@ -6,13 +6,14 @@ using namespace std;
 
 int main()
 {
-	PyObject* pFunc = DEF;// ÉùÃ÷±äÁ¿
-	Py_Initialize();//Ê¹ÓÃpythonÖ®Ç°£¬Òªµ÷ÓÃPy_Initialize();Õâ¸öº¯Êý½øÐÐ³õÊ¼»¯
+	PyObject* pModule = ABC;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	PyObject* pFunc = DEF;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	Py_Initialize();//Ê¹ï¿½ï¿½pythonÖ®Ç°ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Py_Initialize();ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½Ê¼ï¿½ï¿½
 
 	if (!Py_IsInitialized())
 
 	{
-		printf("³õÊ¼»¯Ê§°Ü£¡");
+		printf("ï¿½ï¿½Ê¼ï¿½ï¿½Ê§ï¿½Ü£ï¿½");
 
 		return 0;
 
@@ -20,41 +21,41 @@ int main()
 
 	PyRun_SimpleString("import sys");
 
-	PyRun_SimpleString("sys.path.append('./Debug')");//ÕâÒ»²½ºÜÖØÒª£¬ÐÞ¸ÄPythonÂ·¾¶
-	//PyRun_SimpleString("f=open('D:\learn\VS2015\test/abc.py','r',encoding='utf8')");//ÕâÒ»²½ºÜÖØÒª£¬ÐÞ¸ÄPythonÂ·¾¶
+	PyRun_SimpleString("sys.path.append('./Debug')");//ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Þ¸ï¿½PythonÂ·ï¿½ï¿½
+	//PyRun_SimpleString("f=open('D:\learn\VS2015\test/abc.py','r',encoding='utf8')");//ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Þ¸ï¿½PythonÂ·ï¿½ï¿½
 
 	
 
-	PyObject* pModule = NULL;//ÉùÃ÷±äÁ¿
+	PyObject* pModule = NULL;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	PyObject* pFunc = NULL;// ÉùÃ÷±äÁ¿
+	PyObject* pFunc = NULL;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	pModule = PyImport_ImportModule("pythonTest");//ÕâÀïÊÇÒªµ÷ÓÃµÄÎÄ¼þÃûhash_hmac.py
+	pModule = PyImport_ImportModule("pythonTest");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ãµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½hash_hmac.py
 
 	if (pModule == NULL)
 
 	{
-		cout << "Ã»ÕÒµ½" << endl;
+		cout << "Ã»ï¿½Òµï¿½" << endl;
 
 	}
 
-	pFunc = PyObject_GetAttrString(pModule, "hash_hmac");//ÕâÀïÊÇÒªµ÷ÓÃµÄº¯ÊýÃû
+	pFunc = PyObject_GetAttrString(pModule, "hash_hmac");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ÃµÄºï¿½ï¿½ï¿½ï¿½ï¿½
 
-														 //Á½¸ö×Ö·û´®²ÎÊý
+														 //ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	PyObject* pParams = Py_BuildValue("ss", "100", "200");
 
 	char* result;
 
-	PyObject* pRet = PyObject_CallObject(pFunc, pParams);//µ÷ÓÃº¯Êý
+	PyObject* pRet = PyObject_CallObject(pFunc, pParams);//ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½
 
 	int res = 0;
 
-	PyArg_Parse(pRet, "s", &result);//×ª»»·µ»ØÀàÐÍ
+	PyArg_Parse(pRet, "s", &result);//×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	cout << "res:" << result << endl;//Êä³ö½á¹û
+	cout << "res:" << result << endl;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	Py_Finalize();//µ÷ÓÃPy_Finalize£¬Õâ¸ö¸ùPy_InitializeÏà¶ÔÓ¦µÄ¡£
+	Py_Finalize();//ï¿½ï¿½ï¿½ï¿½Py_Finalizeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Py_Initializeï¿½ï¿½ï¿½Ó¦ï¿½Ä¡ï¿½
 
 	return 0;
 

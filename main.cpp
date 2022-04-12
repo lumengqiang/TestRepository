@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+	PyObject* pModule = ABC;//声明变量
 	Py_Initialize();//使用python之前，要调用Py_Initialize();这个函数进行初始化
 
 	if (!Py_IsInitialized())
